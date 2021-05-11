@@ -1,0 +1,118 @@
+# result set represents specimens with locality info 
+SELECT * FROM Lot
+INNER JOIN Locality ON Lot.locationID = Locality.locationID; 
+
+
+# joining locality + georef + lot
+# get 6253 records
+SELECT
+  Lot.institutionCode,
+  Lot.collectionCode,
+  Lot.basisOfRecord,
+  Lot.occurrenceID,
+  Lot.scientificName,
+  Lot.taxonRank,
+  Lot.catalogNumber,
+  Lot.individualCount,
+  Lot.locationID,
+  Locality.recordedBy,
+  Locality.verbatimEventDate,
+  Locality.continent,
+  Locality.waterBody,
+  Locality.islandGroup,
+  Locality.island,
+  Locality.country,
+  Locality.stateProvince,
+  Locality.county,
+  Locality.earliestEonOrLowestEonothem,
+  Locality.latestEonOrHighestEonothem,
+  Locality.earliestEraOrLowestErathem,
+  Locality.latestEraOrHighestErathem,
+  Locality.earliestPeriodOrLowestSystem,
+  Locality.latestPeriodOrHighestSystem,
+  Locality.earliestEpochOrLowestSeries,
+  Locality.latestEpochOrHighestSeries,
+  Locality.earliestAgeOrLowestStage,
+  Locality.latestAgeOrHighestStage,
+  Locality.group,
+  Locality.formation,
+  Locality.member,
+  Locality.bed,
+  georeference.decimalLatitude,
+  georeference.decimalLongitude,
+  georeference.geodeticDatum,
+  georeference.coordinateUncertaintyInMeters
+ FROM Locality 
+ INNER JOIN georeference
+ ON Locality.locationID = georeference.locationID
+ INNER JOIN Lot ON Lot.locationID = georeference.locationID;
+
+# switching order of the tables gives same result of 6253 records 
+# result set represents specimens that have a locality that is georeferenced
+SELECT
+  Lot.institutionCode,
+  Lot.collectionCode,
+  Lot.basisOfRecord,
+  Lot.occurrenceID,
+  Lot.scientificName,
+  Lot.taxonRank,
+  Lot.catalogNumber,
+  Lot.individualCount,
+  Lot.locationID,
+  Locality.recordedBy,
+  Locality.verbatimEventDate,
+  Locality.continent,
+  Locality.waterBody,
+  Locality.islandGroup,
+  Locality.island,
+  Locality.country,
+  Locality.stateProvince,
+  Locality.county,
+  Locality.earliestEonOrLowestEonothem,
+  Locality.latestEonOrHighestEonothem,
+  Locality.earliestEraOrLowestErathem,
+  Locality.latestEraOrHighestErathem,
+  Locality.earliestPeriodOrLowestSystem,
+  Locality.latestPeriodOrHighestSystem,
+  Locality.earliestEpochOrLowestSeries,
+  Locality.latestEpochOrHighestSeries,
+  Locality.earliestAgeOrLowestStage,
+  Locality.latestAgeOrHighestStage,
+  Locality.group,
+  Locality.formation,
+  Locality.member,
+  Locality.bed,
+  georeference.decimalLatitude,
+  georeference.decimalLongitude,
+  georeference.geodeticDatum,
+  georeference.coordinateUncertaintyInMeters
+ FROM Locality 
+ INNER JOIN Lot
+ ON Locality.locationID = Lot.locationID
+ INNER JOIN georeference ON georeference.locationID = Lot.locationID;
+
+# this way also works
+# get 6253 records again
+SELECT
+	Lot.catalogNumber,
+	Locality.locationID,
+    Locality.county,
+    Locality.stateProvince,
+    georeference.decimalLongitude,
+    georeference.decimalLatitude
+FROM Lot, Locality, georeference
+WHERE
+Lot.locationID = Locality.locationID AND 
+Locality.locationID = georeference.locationID; 
+
+## for result set that has localities that are georeferenced 
+## get 1575 records, which is size of georeference table so all good
+SELECT
+	Locality.locationID,
+    Locality.county,
+    Locality.stateProvince,
+    georeference.decimalLongitude,
+    georeference.decimalLatitude
+FROM Locality
+INNER JOIN georeference
+ON Locality.locationID = georeference.locationID
