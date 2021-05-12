@@ -115,4 +115,4 @@ SELECT
     georeference.decimalLatitude
 FROM locality
 INNER JOIN georeference
-ON locality.locationID = georeference.locationID
+ON locality.locationID = georeference.locationID;
