@@ -1,0 +1,4 @@
+#replacing empty strings with nulls for INT columns#
+UPDATE lot
+SET specimenID1 = NULLIF(@specimenID1, '')
+WHERE specimenID1 = ''; 
