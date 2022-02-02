@@ -1,2 +1,2 @@
 # Georeferencing
- scripts and files related to cleaning georeferencing data for upload to SQL db
+ scripts and files for combining, cleaning, and mapping georeferenced natural history museum localities. 
