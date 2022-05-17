@@ -7,3 +7,6 @@
  The map folder has a Jupyter notebook with sample csv for mapping georeferenced data. 
  
  The sql folder has some queries useful for joining georeferencing and locality tables in a MySQL/MariaDB database. 
+ 
+ # Poster Overview
+ ![poster](docs/Abarca_SPNHC2022_Poster.pdf)
