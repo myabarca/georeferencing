@@ -6,7 +6,7 @@
  
  The ![map folder](mapGeorefData) map folder has a Jupyter notebook with sample csv for mapping georeferenced data using the Folium Python library. 
  
- The ![sql folder] (SQL) sql folder has some queries useful for joining georeferencing and locality tables in a MySQL/MariaDB database. 
+ The ![sql folder](SQL) sql folder has some queries useful for joining georeferencing and locality tables in a MySQL/MariaDB database. 
  
  # Poster Overview
  ![poster](docs/Abarca_SPNHC2022_Poster.png)
