@@ -9,4 +9,4 @@
  The sql folder has some queries useful for joining georeferencing and locality tables in a MySQL/MariaDB database. 
  
  # Poster Overview
- ![poster](docs/Abarca_SPNHC2022_Poster.pdf)
+ ![poster](docs/Abarca_SPNHC2022_Poster.png)
