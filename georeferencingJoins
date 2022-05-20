@@ -1,10 +1,14 @@
-# result set represents specimens with locality info 
+### The following queries help combine related data from different tables that hold specimen occurrence records, locality records, and georeference data. ### 
+
+# 1. Get lots with their just locality information (not including georeferencing data). 
+
 SELECT * FROM lot
 INNER JOIN locality ON lot.locationID = locality.locationID; 
 
 
-# joining locality + georef + lot
-# get 6253 records
+# 2. Joining lots with their locality information and georeferencing data.
+	# Select the columns you need from each table. This is just an exampe of columns we wanted to include.
+
 SELECT
   lot.institutionCode,
   lot.collectionCode,
@@ -47,52 +51,10 @@ SELECT
  ON locality.locationID = lot.locationID
  INNER JOIN georeference ON georeference.locationID = lot.locationID;
 
-# switching order of the tables gives same result of 6253 records 
-# result set represents specimens that have a locality that is georeferenced
-SELECT
-  lot.institutionCode,
-  lot.collectionCode,
-  lot.basisOfRecord,
-  lot.occurrenceID,
-  lot.scientificName,
-  lot.taxonRank,
-  lot.catalogNumber,
-  lot.individualCount,
-  lot.locationID,
-  locality.recordedBy,
-  locality.verbatimEventDate,
-  locality.continent,
-  locality.waterBody,
-  locality.islandGroup,
-  locality.island,
-  locality.country,
-  locality.stateProvince,
-  locality.county,
-  locality.earliestEonOrLowestEonothem,
-  locality.latestEonOrHighestEonothem,
-  locality.earliestEraOrLowestErathem,
-  locality.latestEraOrHighestErathem,
-  locality.earliestPeriodOrLowestSystem,
-  locality.latestPeriodOrHighestSystem,
-  locality.earliestEpochOrLowestSeries,
-  locality.latestEpochOrHighestSeries,
-  locality.earliestAgeOrLowestStage,
-  locality.latestAgeOrHighestStage,
-  locality.group,
-  locality.formation,
-  locality.member,
-  locality.bed,
-  georeference.decimalLatitude,
-  georeference.decimalLongitude,
-  georeference.geodeticDatum,
-  georeference.coordinateUncertaintyInMeters
- FROM locality 
- INNER JOIN lot
- ON locality.locationID = lot.locationID
- INNER JOIN georeference ON georeference.locationID = lot.locationID;
 
-# this way also works
-# get 6253 records again
+  
+# 2b. This approach would also work. It returned the same number of records as the method above.
+
 SELECT
 	lot.catalogNumber,
 	locality.locationID,
@@ -105,10 +67,11 @@ WHERE
 lot.locationID = locality.locationID AND 
 locality.locationID = georeference.locationID; 
 
-## for result set that has localities that are georeferenced 
-## get 1575 records, which is size of georeference table so all good
+
+# 3. Get result set of only localities that are georeferenced. 
+	# We should get the same number of records as the size of our georeference table.
 SELECT
-	locality.locationID,
+    locality.locationID,
     locality.county,
     locality.stateProvince,
     georeference.decimalLongitude,
