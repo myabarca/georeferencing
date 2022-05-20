@@ -1,0 +1,5 @@
+# Replacing empty strings with nulls. This is useful for trying to use COALESCE on columns with empty strings. 
+
+UPDATE lot // replace with whatever table
+SET specimenID1 = NULLIF(@specimenID1, '')  //column = NULLIF(@column, 'value to compare @column to'). returns null if the values are equal. returns first value if they're not.
+WHERE specimenID1 = ''; 
