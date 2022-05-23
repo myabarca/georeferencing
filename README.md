@@ -6,7 +6,11 @@
  
  The [map folder](mapGeorefData) has a Jupyter notebook with sample csv for mapping georeferenced data using the Folium Python library. 
  
- The [sql folder](SQL) has some queries useful for joining georeferencing and locality tables in a MySQL/MariaDB database. 
+ The [sql folder](usefulSQLQueries) has some queries useful for joining georeferencing and locality tables in a MySQL/MariaDB database. 
+ 
+ The [database structure folder](databaseStructure) has documentation of the entities and relationships in the MariaDB database. 
+ 
+ The [ingestion workflow folder] has documentation on how duplicate lotIDs were handled before ingesting specimen occurrence records into the final database. 
  
  # Poster Overview
  ![poster](docs/Abarca_SPNHC2022_Poster.png)
