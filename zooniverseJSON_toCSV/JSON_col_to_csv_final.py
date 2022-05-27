@@ -15,7 +15,7 @@ Things like section/town/range, county, etc are all nested in one cell.
 import csv
 
 fields = [i for i in range(20)]                        # Define list of fields for the header row/column names. There are 20 columns of relevant info total.
-with open("zooniverse_final_testImprovements.csv", "w") as csv_final:            # Open/name a file with write priliveges    
+with open("zooniverse_final.csv", "w") as csv_final:            # Open/name a file with write privileges   
     csvwriter = csv.writer(csv_final)                  # Create instance of csv.writer() class with the csv we'll be writing 
     csvwriter.writerow(fields)                         # Write header row. Will replace numbered headers with more descriptive ones later. 
     with open("from-fossil-fuels-to-fossil-facts-classifications-4.csv", "r") as csv_file:      # Open the Zooniverse data with read privileges
