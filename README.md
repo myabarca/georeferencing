@@ -10,7 +10,7 @@
  
  The [database structure folder](databaseStructure) has documentation of the entities and relationships in the MariaDB database. 
  
- The [ingestion workflow folder] has documentation on how duplicate lotIDs were handled before ingesting specimen occurrence records into the final database. 
+ The [ingestion workflow folder](ingestionWorkflow) has documentation on how duplicate lotIDs and taxonRank filling were handled before ingesting specimen occurrence records into the final database. 
  
  # Poster Overview
  ![poster](docs/Abarca_SPNHC2022_Poster.png)
