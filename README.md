@@ -4,7 +4,7 @@
  # Contents 
  The [checklist folder](createGeorefChecklist) contains an example for finding localities that still need to be georeferenced. There is a Jupyter notebook and sample csvs for trying a script that creates a new csv with your locationID records that have not yet been georeferenced. It takes all of your locationIDs and compares them to a list of locationIDs that have georeferencing data, and returns where these datasets do not intersect. 
  
- The [map folder](mapGeorefData) has a Jupyter notebook with sample csv for mapping georeferenced data using the Folium Python library. 
+ The [map folder](mapGeorefData) has a Jupyter notebook with sample csv for mapping georeferenced data using the Folium Python library. The [Native Land Mapping folder](nativeLandMapping) within this directory contains a script for mapping your localities onto a basemap of indigenous territories. 
  
  The [sql folder](usefulSQLQueries) has some queries useful for joining georeferencing and locality tables in a MySQL/MariaDB database. 
  
